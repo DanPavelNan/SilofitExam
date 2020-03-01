@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,12 @@
 		378CDE6D240C31B6007FDA6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CDE6B240C31B6007FDA6F /* Main.storyboard */; };
 		378CDE6F240C31C9007FDA6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378CDE6E240C31C9007FDA6F /* Assets.xcassets */; };
 		378CDE72240C31C9007FDA6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CDE70240C31C9007FDA6F /* LaunchScreen.storyboard */; };
+		378CDE7A240C3B03007FDA6F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 378CDE79240C3B03007FDA6F /* GoogleService-Info.plist */; };
+		7DDEB94C8F9E793C8137471B /* Pods_SilofitExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130DB785BDBD73B9EDEDCC14 /* Pods_SilofitExam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		130DB785BDBD73B9EDEDCC14 /* Pods_SilofitExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SilofitExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		378CDE62240C31B6007FDA6F /* SilofitExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilofitExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378CDE65240C31B6007FDA6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378CDE69240C31B6007FDA6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		378CDE6E240C31C9007FDA6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		378CDE71240C31C9007FDA6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378CDE73240C31C9007FDA6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		378CDE79240C3B03007FDA6F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D61C70E643161C7A52CE5C3 /* Pods-SilofitExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilofitExam.debug.xcconfig"; path = "Target Support Files/Pods-SilofitExam/Pods-SilofitExam.debug.xcconfig"; sourceTree = "<group>"; };
+		D3933E1603AECC8BDD4DD9EE /* Pods-SilofitExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilofitExam.release.xcconfig"; path = "Target Support Files/Pods-SilofitExam/Pods-SilofitExam.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DDEB94C8F9E793C8137471B /* Pods_SilofitExam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2181C09EA7975F55CA2569CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D61C70E643161C7A52CE5C3 /* Pods-SilofitExam.debug.xcconfig */,
+				D3933E1603AECC8BDD4DD9EE /* Pods-SilofitExam.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		378CDE59240C31B6007FDA6F = {
 			isa = PBXGroup;
 			children = (
 				378CDE64240C31B6007FDA6F /* SilofitExam */,
 				378CDE63240C31B6007FDA6F /* Products */,
+				2181C09EA7975F55CA2569CA /* Pods */,
+				74B7A80077107579F391D68C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +78,17 @@
 				378CDE6E240C31C9007FDA6F /* Assets.xcassets */,
 				378CDE70240C31C9007FDA6F /* LaunchScreen.storyboard */,
 				378CDE73240C31C9007FDA6F /* Info.plist */,
+				378CDE79240C3B03007FDA6F /* GoogleService-Info.plist */,
 			);
 			path = SilofitExam;
+			sourceTree = "<group>";
+		};
+		74B7A80077107579F391D68C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				130DB785BDBD73B9EDEDCC14 /* Pods_SilofitExam.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 378CDE76240C31C9007FDA6F /* Build configuration list for PBXNativeTarget "SilofitExam" */;
 			buildPhases = (
+				639782BE565A26C640824E3F /* [CP] Check Pods Manifest.lock */,
 				378CDE5E240C31B6007FDA6F /* Sources */,
 				378CDE5F240C31B6007FDA6F /* Frameworks */,
 				378CDE60240C31B6007FDA6F /* Resources */,
+				8B3DFBC77556F6C2C34E54F6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +152,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				378CDE72240C31C9007FDA6F /* LaunchScreen.storyboard in Resources */,
+				378CDE7A240C3B03007FDA6F /* GoogleService-Info.plist in Resources */,
 				378CDE6F240C31C9007FDA6F /* Assets.xcassets in Resources */,
 				378CDE6D240C31B6007FDA6F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		639782BE565A26C640824E3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SilofitExam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B3DFBC77556F6C2C34E54F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SilofitExam/Pods-SilofitExam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SilofitExam/Pods-SilofitExam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SilofitExam/Pods-SilofitExam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		378CDE5E240C31B6007FDA6F /* Sources */ = {
@@ -278,6 +350,7 @@
 		};
 		378CDE77240C31C9007FDA6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D61C70E643161C7A52CE5C3 /* Pods-SilofitExam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +370,7 @@
 		};
 		378CDE78240C31C9007FDA6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3933E1603AECC8BDD4DD9EE /* Pods-SilofitExam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

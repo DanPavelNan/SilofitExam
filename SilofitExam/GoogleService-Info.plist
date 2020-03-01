@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>538911872283-8mul54tf8t4klon6q2cvv7dbk4t90tko.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.538911872283-8mul54tf8t4klon6q2cvv7dbk4t90tko</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD61Igrr_t82XT9BRBocU7SKnezR0R2wWU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>538911872283</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.nan.dan.SilofitExam</string>
+	<key>PROJECT_ID</key>
+	<string>silofitexam</string>
+	<key>STORAGE_BUCKET</key>
+	<string>silofitexam.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:538911872283:ios:bbbab7d2bddc5597adafbe</string>
+	<key>DATABASE_URL</key>
+	<string>https://silofitexam.firebaseio.com</string>
+</dict>
+</plist>
