@@ -7,5 +7,6 @@ target 'SilofitExam' do
 
   pod 'Firebase/Auth'	
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
 end
