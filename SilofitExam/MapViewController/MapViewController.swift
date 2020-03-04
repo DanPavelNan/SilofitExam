@@ -24,21 +24,22 @@ class MapViewController: UIViewController, ShowsLoading {
     var spinner: UIActivityIndicatorView?
     var spaces: [Space] = []
 
-    let initialLocation = CLLocation(latitude: 45.5047601, longitude: -73.5749017)
-    let initialRegionRadius: CLLocationDistance = 15000
     let regionRadius: CLLocationDistance = 1000
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "List", style: .plain, target: self, action: #selector(showList))
-        centerMapOnLocation(location: self.initialLocation, regionRadius: initialRegionRadius)
+        setupNavigationBarButtons()
         mapView.delegate = self
+        loadAndShowSpacesOnMap()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func setupNavigationBarButtons() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "List", style: .plain, target: self, action: #selector(showList))
+    }
+
+    func loadAndShowSpacesOnMap() {
         showLoadingIndicator()
         Store().getListOfLocation { [weak self] result in
             guard let self = self else { return }
@@ -49,24 +50,27 @@ class MapViewController: UIViewController, ShowsLoading {
                 self.showSpacesOnMap(spaces)
 
             case .failure(let error):
-                print(error)
+                self.showAlert(withTitle: "Error", message: error.localizedDescription)
             }
         }
     }
 
     func showSpacesOnMap(_ spaces: [Space]) {
-        centerMapOnLocation(location: initialLocation, regionRadius: regionRadius)
         let spaceAnnotations = spaces.compactMap { SpaceMapAnnotation($0) }
         mapView.addAnnotations(spaceAnnotations)
+        if let firstSpace = spaceAnnotations.first {
+            let coordinate = CLLocation(latitude: firstSpace.coordinate.latitude, longitude: firstSpace.coordinate.longitude)
+            centerMapOnLocation(location: coordinate, regionRadius: regionRadius)
+        }
     }
 
     func centerMapOnLocation(location: CLLocation, regionRadius: CLLocationDistance) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
                                                   latitudinalMeters: regionRadius,
                                                   longitudinalMeters: regionRadius)
-      mapView.setRegion(coordinateRegion, animated: true)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
-
+    
     @objc func logout() {
         delegate?.mapViewControllerDitTapOnLogoutButton(self)
     }
@@ -80,7 +84,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotations = view.annotation as? SpaceMapAnnotation,
             let space = spaces.first(where: { $0.space_id == annotations.spaceId }) else {
-              return
+                return
         }
         delegate?.mapViewController(self, didSelectSpace: space)
     }
