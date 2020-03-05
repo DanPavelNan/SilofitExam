@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         AuthenticationManager().signInUser(withEmail: email, password: password) { [weak self] error in
             guard let self = self else { return }
             guard error == nil else {
-                print(error!)
+                self.showAlert(withTitle: "Error", message: error!.localizedDescription)
                 return
             }
             self.delegate?.loginViewControllerDidLogin(self)

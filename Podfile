@@ -9,4 +9,5 @@ target 'SilofitExam' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
 
+  pod 'SDWebImage'
 end

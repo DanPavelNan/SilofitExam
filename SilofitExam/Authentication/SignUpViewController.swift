@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
         AuthenticationManager().singUp(newUser: newUser) { [weak self] (error) in
             guard let self = self else { return }
             guard error == nil else {
-                self.showAlert(withTitle: "Error", message: error?.localizedDescription ?? "Something when wrong")
+                self.showAlert(withTitle: "Error", message: error!.localizedDescription)
                 return
             }
             self.delegate?.signUpViewControllerDidSignUp(self)

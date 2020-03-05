@@ -21,10 +21,24 @@ struct Space: Codable {
     let name: String
     let open_days: String
     let open_hours: String
-    let rate: Int
+    let rate: Decimal
     let slug: String
     let space_id: String
     let square_footage: Double
     let status: String
-    let timezone: String // try TimeZone type
+    let timezone: String
+}
+
+// TODO: Add unit test for those computed properties
+extension Space {
+    var pricePerHour: String {
+        return "FROM \(rate.currencyString)/HR"
+    }
+
+    var spaceInSquareFeet: String {
+        return "\(square_footage) SQ. FT."
+    }
+    var peopleCapacity: String {
+        return "UP TO \(max_capacity) PEOPLE"
+    }
 }

@@ -8,9 +8,10 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 protocol MapViewControllerDelegate: class {
-    func mapViewControllerDitTapOnListButton(_ controller: MapViewController, spaces: [Space])
+    func mapViewControllerDitTapOnListButton(_ controller: MapViewController, spaces: [Space], userCurrentLocation: CLLocation?)
     func mapViewControllerDitTapOnLogoutButton(_ controller: MapViewController)
     func mapViewController(_ controller: MapViewController, didSelectSpace spase: Space)
 }
@@ -25,9 +26,22 @@ class MapViewController: UIViewController, ShowsLoading {
     var spaces: [Space] = []
 
     let regionRadius: CLLocationDistance = 1000
+    var locationManager: CLLocationManager?
+    var userCurrentLocation: CLLocation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
+        if CLLocationManager.locationServicesEnabled() {
+            let locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+            self.locationManager = locationManager
+            mapView.showsUserLocation = true
+        }
 
         setupNavigationBarButtons()
         mapView.delegate = self
@@ -58,7 +72,8 @@ class MapViewController: UIViewController, ShowsLoading {
     func showSpacesOnMap(_ spaces: [Space]) {
         let spaceAnnotations = spaces.compactMap { SpaceMapAnnotation($0) }
         mapView.addAnnotations(spaceAnnotations)
-        if let firstSpace = spaceAnnotations.first {
+        if  userCurrentLocation == nil,
+            let firstSpace = spaceAnnotations.first {
             let coordinate = CLLocation(latitude: firstSpace.coordinate.latitude, longitude: firstSpace.coordinate.longitude)
             centerMapOnLocation(location: coordinate, regionRadius: regionRadius)
         }
@@ -70,13 +85,13 @@ class MapViewController: UIViewController, ShowsLoading {
                                                   longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
+
     @objc func logout() {
         delegate?.mapViewControllerDitTapOnLogoutButton(self)
     }
 
     @objc func showList() {
-        delegate?.mapViewControllerDitTapOnListButton(self, spaces: spaces)
+        delegate?.mapViewControllerDitTapOnListButton(self, spaces: spaces, userCurrentLocation: userCurrentLocation)
     }
 }
 
@@ -88,4 +103,19 @@ extension MapViewController: MKMapViewDelegate {
         }
         delegate?.mapViewController(self, didSelectSpace: space)
     }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        userCurrentLocation = locations.last! as CLLocation
+
+        let center = CLLocationCoordinate2D(latitude: userCurrentLocation!.coordinate.latitude,
+                                            longitude: userCurrentLocation!.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center,
+                                        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+
+        self.mapView.setRegion(region, animated: true)
+    }
+
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class AppRootCoordinator {
 
@@ -67,8 +68,9 @@ extension AppRootCoordinator: AuthenticationViewControllerDelegate {
 // MARK: - MapViewControllerDelegate
 
 extension AppRootCoordinator: MapViewControllerDelegate {
-    func mapViewControllerDitTapOnListButton(_ controller: MapViewController, spaces: [Space]) {
-        let listOfSpacesViewController = ListOfSpacesViewController()
+
+    func mapViewControllerDitTapOnListButton(_ controller: MapViewController, spaces: [Space], userCurrentLocation: CLLocation?) {
+        let listOfSpacesViewController = ListOfSpacesViewController(spaces: spaces, userCurrentLocation: userCurrentLocation)
         self.listOfSpacesViewController = listOfSpacesViewController
         navigationController.show(listOfSpacesViewController, sender: self)
     }

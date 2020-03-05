@@ -21,6 +21,11 @@
 		37770E71240F56DC0069F41D /* ShowsLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E70240F56DC0069F41D /* ShowsLoading.swift */; };
 		37770E75240F57840069F41D /* ListOfSpacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E73240F57840069F41D /* ListOfSpacesViewController.swift */; };
 		37770E76240F57840069F41D /* ListOfSpacesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37770E74240F57840069F41D /* ListOfSpacesViewController.xib */; };
+		37770E7A24105EF00069F41D /* SpaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E7824105EEF0069F41D /* SpaceCollectionViewCell.swift */; };
+		37770E7B24105EF00069F41D /* SpaceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37770E7924105EEF0069F41D /* SpaceCollectionViewCell.xib */; };
+		37770E7D241063520069F41D /* ReusableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E7C241063520069F41D /* ReusableCellProtocol.swift */; };
+		37770E7F2410635E0069F41D /* UICollectionView+ReuseCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E7E2410635E0069F41D /* UICollectionView+ReuseCells.swift */; };
+		37770E812410B3110069F41D /* Decimal+Formating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E802410B3110069F41D /* Decimal+Formating.swift */; };
 		378CDE66240C31B6007FDA6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378CDE65240C31B6007FDA6F /* AppDelegate.swift */; };
 		378CDE6F240C31C9007FDA6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378CDE6E240C31C9007FDA6F /* Assets.xcassets */; };
 		378CDE72240C31C9007FDA6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CDE70240C31C9007FDA6F /* LaunchScreen.storyboard */; };
@@ -52,6 +57,11 @@
 		37770E70240F56DC0069F41D /* ShowsLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsLoading.swift; sourceTree = "<group>"; };
 		37770E73240F57840069F41D /* ListOfSpacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfSpacesViewController.swift; sourceTree = "<group>"; };
 		37770E74240F57840069F41D /* ListOfSpacesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListOfSpacesViewController.xib; sourceTree = "<group>"; };
+		37770E7824105EEF0069F41D /* SpaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		37770E7924105EEF0069F41D /* SpaceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceCollectionViewCell.xib; sourceTree = "<group>"; };
+		37770E7C241063520069F41D /* ReusableCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCellProtocol.swift; sourceTree = "<group>"; };
+		37770E7E2410635E0069F41D /* UICollectionView+ReuseCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReuseCells.swift"; sourceTree = "<group>"; };
+		37770E802410B3110069F41D /* Decimal+Formating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Formating.swift"; sourceTree = "<group>"; };
 		378CDE62240C31B6007FDA6F /* SilofitExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilofitExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378CDE65240C31B6007FDA6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378CDE6E240C31C9007FDA6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,8 +113,10 @@
 		37770E65240F40B40069F41D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				37770E7E2410635E0069F41D /* UICollectionView+ReuseCells.swift */,
 				372BAF7C240DFC1100E37E42 /* UIButton+Style.swift */,
 				37770E66240F40CF0069F41D /* UIViewController+Alert.swift */,
+				37770E802410B3110069F41D /* Decimal+Formating.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -121,6 +133,7 @@
 		37770E6F240F56C20069F41D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				37770E7C241063520069F41D /* ReusableCellProtocol.swift */,
 				37770E70240F56DC0069F41D /* ShowsLoading.swift */,
 			);
 			path = Protocols;
@@ -129,10 +142,20 @@
 		37770E72240F57560069F41D /* ListOfSpacesViewController */ = {
 			isa = PBXGroup;
 			children = (
+				37770E7724105ECA0069F41D /* Cells */,
 				37770E73240F57840069F41D /* ListOfSpacesViewController.swift */,
 				37770E74240F57840069F41D /* ListOfSpacesViewController.xib */,
 			);
 			path = ListOfSpacesViewController;
+			sourceTree = "<group>";
+		};
+		37770E7724105ECA0069F41D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				37770E7824105EEF0069F41D /* SpaceCollectionViewCell.swift */,
+				37770E7924105EEF0069F41D /* SpaceCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		378CDE59240C31B6007FDA6F = {
@@ -292,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37770E76240F57840069F41D /* ListOfSpacesViewController.xib in Resources */,
+				37770E7B24105EF00069F41D /* SpaceCollectionViewCell.xib in Resources */,
 				372BAF7B240DF20500E37E42 /* LoginViewController.xib in Resources */,
 				378CDE85240C696F007FDA6F /* SignUpViewController.xib in Resources */,
 				378CDE8E240C7640007FDA6F /* MapViewController.xib in Resources */,
@@ -355,10 +379,12 @@
 			files = (
 				372BAF7A240DF20500E37E42 /* LoginViewController.swift in Sources */,
 				37770E64240E15E80069F41D /* Space.swift in Sources */,
+				37770E7F2410635E0069F41D /* UICollectionView+ReuseCells.swift in Sources */,
 				37770E6D240F4DEA0069F41D /* SpaceDetailsViewController.swift in Sources */,
 				378CDE7F240C643E007FDA6F /* AuthenticationViewController.swift in Sources */,
 				37770E75240F57840069F41D /* ListOfSpacesViewController.swift in Sources */,
 				378CDE66240C31B6007FDA6F /* AppDelegate.swift in Sources */,
+				37770E7D241063520069F41D /* ReusableCellProtocol.swift in Sources */,
 				37770E5F240E059C0069F41D /* UserForm.swift in Sources */,
 				378CDE89240C73D1007FDA6F /* AuthenticationManager.swift in Sources */,
 				37770E61240E0BA20069F41D /* Store.swift in Sources */,
@@ -366,9 +392,11 @@
 				378CDE7C240C6218007FDA6F /* AppRootCoordinator.swift in Sources */,
 				37770E69240F48000069F41D /* SpaceMapAnnotation.swift in Sources */,
 				372BAF7D240DFC1100E37E42 /* UIButton+Style.swift in Sources */,
+				37770E7A24105EF00069F41D /* SpaceCollectionViewCell.swift in Sources */,
 				378CDE84240C696F007FDA6F /* SignUpViewController.swift in Sources */,
 				378CDE8D240C7640007FDA6F /* MapViewController.swift in Sources */,
 				37770E67240F40CF0069F41D /* UIViewController+Alert.swift in Sources */,
+				37770E812410B3110069F41D /* Decimal+Formating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
