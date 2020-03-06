@@ -35,26 +35,3 @@ class AuthenticationManager {
         }
     }
 }
-
-
-
-
-
-    // func testAuth() {
-    //        Auth.auth().addStateDidChangeListener { (auth, user) in
-    //            if user != nil {
-    //                // user is signed in
-    //                print( "go to feature controller")
-    //                print("User uid \(user?.uid)")
-    //                 print("User email \(user?.email)")
-    //                 print("User displayname \(user?.displayName)")
-    //            } else {
-    //                 // user is not signed in
-    //                 print("go to login controller")
-    //            }
-    //        }
-    //        do {
-    //        try Auth.auth().signOut()
-    //        } catch {
-    //            print("Fail to logoutt")
-    //        }

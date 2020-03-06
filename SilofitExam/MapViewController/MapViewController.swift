@@ -32,7 +32,6 @@ class MapViewController: UIViewController, ShowsLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         if CLLocationManager.locationServicesEnabled() {
             let locationManager = CLLocationManager()
             locationManager.delegate = self
@@ -107,15 +106,7 @@ extension MapViewController: MKMapViewDelegate {
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
         userCurrentLocation = locations.last! as CLLocation
-
-        let center = CLLocationCoordinate2D(latitude: userCurrentLocation!.coordinate.latitude,
-                                            longitude: userCurrentLocation!.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center,
-                                        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-
-        self.mapView.setRegion(region, animated: true)
+        centerMapOnLocation(location: userCurrentLocation!, regionRadius: regionRadius)
     }
-
 }

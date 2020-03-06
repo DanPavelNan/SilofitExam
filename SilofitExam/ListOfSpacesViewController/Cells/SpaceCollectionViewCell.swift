@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
 import CoreLocation
 
 class SpaceCollectionViewCell: UICollectionViewCell {
@@ -44,7 +43,7 @@ class SpaceCollectionViewCell: UICollectionViewCell {
     func configure(with space: Space, userCurrentLocation: CLLocation?) {
         if let firstImage = space.image_urls.first,
             let imageURL = URL(string: firstImage) {
-        imageView.sd_setImage(with: imageURL)
+        imageView.loadImage(withURL: imageURL)
         }
         priceLabel.text = space.pricePerHour
         availableSurfaceLabel.text = space.spaceInSquareFeet

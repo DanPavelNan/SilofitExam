@@ -12,14 +12,14 @@ protocol SignUpViewControllerDelegate: class {
     func signUpViewControllerDidSignUp(_ controller: SignUpViewController)
 }
 
-class SignUpViewController: UIViewController {
-
+class SignUpViewController: UIViewController, ShowsLoading {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
 
     weak var delegate: SignUpViewControllerDelegate?
+    var spinner: UIActivityIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +53,14 @@ class SignUpViewController: UIViewController {
     }
 
     func singUp(newUser: UserFrom) {
+        showLoadingIndicator()
+        signUpButton.isEnabled = false
         AuthenticationManager().singUp(newUser: newUser) { [weak self] (error) in
             guard let self = self else { return }
+            self.removeLoadingIndicator()
             guard error == nil else {
                 self.showAlert(withTitle: "Error", message: error!.localizedDescription)
+                self.signUpButton.isEnabled = true
                 return
             }
             self.delegate?.signUpViewControllerDidSignUp(self)

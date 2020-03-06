@@ -19,11 +19,9 @@ final class AppRootCoordinator {
     weak var spaceDetailsViewController: SpaceDetailsViewController?
     weak var listOfSpacesViewController: ListOfSpacesViewController?
 
-    var authenticationManager = AuthenticationManager()
-
     func start() {
 
-        guard let currentUser = authenticationManager.currentLoggedInUser else {
+        guard let currentUser = AuthenticationManager().currentLoggedInUser else {
             showAuthenticationScreen()
             return
         }

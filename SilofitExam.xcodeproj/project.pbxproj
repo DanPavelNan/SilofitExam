@@ -26,6 +26,7 @@
 		37770E7D241063520069F41D /* ReusableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E7C241063520069F41D /* ReusableCellProtocol.swift */; };
 		37770E7F2410635E0069F41D /* UICollectionView+ReuseCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E7E2410635E0069F41D /* UICollectionView+ReuseCells.swift */; };
 		37770E812410B3110069F41D /* Decimal+Formating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E802410B3110069F41D /* Decimal+Formating.swift */; };
+		37770E832411F3160069F41D /* UIImageView+LoadRemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37770E822411F3160069F41D /* UIImageView+LoadRemoteImage.swift */; };
 		378CDE66240C31B6007FDA6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378CDE65240C31B6007FDA6F /* AppDelegate.swift */; };
 		378CDE6F240C31C9007FDA6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378CDE6E240C31C9007FDA6F /* Assets.xcassets */; };
 		378CDE72240C31C9007FDA6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CDE70240C31C9007FDA6F /* LaunchScreen.storyboard */; };
@@ -62,6 +63,7 @@
 		37770E7C241063520069F41D /* ReusableCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCellProtocol.swift; sourceTree = "<group>"; };
 		37770E7E2410635E0069F41D /* UICollectionView+ReuseCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReuseCells.swift"; sourceTree = "<group>"; };
 		37770E802410B3110069F41D /* Decimal+Formating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Formating.swift"; sourceTree = "<group>"; };
+		37770E822411F3160069F41D /* UIImageView+LoadRemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadRemoteImage.swift"; sourceTree = "<group>"; };
 		378CDE62240C31B6007FDA6F /* SilofitExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilofitExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378CDE65240C31B6007FDA6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378CDE6E240C31C9007FDA6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				372BAF7C240DFC1100E37E42 /* UIButton+Style.swift */,
 				37770E66240F40CF0069F41D /* UIViewController+Alert.swift */,
 				37770E802410B3110069F41D /* Decimal+Formating.swift */,
+				37770E822411F3160069F41D /* UIImageView+LoadRemoteImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				378CDE8D240C7640007FDA6F /* MapViewController.swift in Sources */,
 				37770E67240F40CF0069F41D /* UIViewController+Alert.swift in Sources */,
 				37770E812410B3110069F41D /* Decimal+Formating.swift in Sources */,
+				37770E832411F3160069F41D /* UIImageView+LoadRemoteImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
